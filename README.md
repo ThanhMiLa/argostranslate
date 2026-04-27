@@ -15,7 +15,7 @@ Runs locally with **no internet required after first setup**.
 
 ---
 
-## ⚡ Quick Start (1 phút là chạy)
+## ⚡ Quick Start 
 
 ### 1. Cài Python (nếu chưa có)
 
@@ -43,7 +43,7 @@ winget install Python.Python.3
 ### 2. Clone repo
 
 ```bash
-git clone https://github.com/your-username/argostranslate.git
+git clone https://github.com/ThanhMiLa/argostranslate.git
 cd argostranslate
 ```
 
