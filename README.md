@@ -1,121 +1,99 @@
-# 🚀 Argos Offline Translator (Portable GUI)
+# Argos Offline Translator
 
-A lightweight **offline translator + dictionary** using Argos Translate, Stanza, and NLTK.
-Runs locally with **no internet required after first setup**.
+Argos Offline Translator là phần mềm dịch thuật và tra cứu từ điển ngoại tuyến với giao diện đồ họa, hoạt động dựa trên nền tảng Argos Translate, Stanza và NLTK. Ứng dụng được thiết kế theo mô hình độc lập (Portable), cho phép vận hành hoàn toàn không cần kết nối mạng sau khi hoàn tất thiết lập ban đầu.
 
----
+## Tính năng nổi bật
 
-## ✨ Features
+1. Hoạt động ngoại tuyến độc lập: Toàn bộ quá trình dịch thuật và tra cứu từ điển diễn ra trực tiếp trên máy tính cá nhân, bảo đảm quyền riêng tư của dữ liệu.
+2. Dịch thuật hai chiều: Hỗ trợ chuyển đổi ngôn ngữ qua lại giữa tiếng Anh và tiếng Việt.
+3. Từ điển chuyên sâu tích hợp: Kết hợp cơ sở dữ liệu WordNet cùng mô hình dịch nghĩa, cung cấp thông tin từ loại, định nghĩa chi tiết và câu ví dụ minh họa.
+4. Tách câu ngữ cảnh: Tích hợp thư viện Stanza hỗ trợ phân đoạn câu chính xác, tối ưu chất lượng văn bản dịch.
+5. Thiết kế dạng Portable: Không yêu cầu cài đặt gói thư viện vào môi trường Python toàn cục của hệ thống, thuận tiện di chuyển giữa các thiết bị.
 
-* 🌐 Fully offline after first run
-* 🔄 English ↔ Vietnamese translation
-* 📖 Built-in dictionary (WordNet + translation)
-* 🧠 Sentence-aware translation (Stanza)
-* 📦 Portable (no global install needed)
+## Yêu cầu hệ thống
 
----
+1. Python phiên bản 3.8 trở lên.
+2. Kết nối mạng chỉ cần thiết trong lần chạy đầu tiên để tải tài nguyên.
+3. Tương thích các hệ điều hành phổ biến: Windows, macOS, Linux.
 
-## ⚡ Quick Start 
+## Hướng dẫn cài đặt và sử dụng
 
-### 1. Cài Python (nếu chưa có)
+### 1. Chuẩn bị môi trường Python
 
-#### 🐧 Linux / Ubuntu
-
+Trên Ubuntu hoặc Linux:
 ```bash
-sudo apt update
-sudo apt install python3 python3-pip -y
+sudo apt update && sudo apt install python3 python3-pip
 ```
 
-#### 🍎 macOS (brew)
-
+Trên macOS:
 ```bash
 brew install python
 ```
 
-#### 🪟 Windows (winget)
-
-```bash
+Trên Windows:
+```cmd
 winget install Python.Python.3
 ```
 
----
-
-### 2. Clone repo
+### 2. Tải mã nguồn
 
 ```bash
 git clone https://github.com/ThanhMiLa/argostranslate.git
 cd argostranslate
 ```
 
----
-
-### 3. Chạy app
+### 3. Khởi chạy ứng dụng
 
 ```bash
 python "Translate Offline GUI Argos.py"
 ```
 
----
+## Quá trình khởi tạo lần đầu
 
-## 🔥 Lần chạy đầu tiên (QUAN TRỌNG)
+Trong lần khởi động đầu tiên, ứng dụng yêu cầu kết nối mạng để tự động tải các thành phần cần thiết:
 
-* Cần **internet**
-* App sẽ tự:
+1. Thư viện phụ thuộc được cài đặt trực tiếp vào thư mục lib nội bộ gồm Argos Translate, Stanza và NLTK.
+2. Gói mô hình ngôn ngữ dịch thuật Anh Việt và Việt Anh.
+3. Dữ liệu xử lý ngôn ngữ tự nhiên từ Stanza.
+4. Cơ sở dữ liệu từ điển WordNet từ NLTK.
 
-  * tải thư viện (argos, nltk, stanza)
-  * tải model dịch
-  * tải dictionary
+Sau khi hoàn tất quá trình tải, tệp cờ .offline_ready sẽ tự động được tạo. Những lần khởi động tiếp theo ứng dụng sẽ hoạt động ở chế độ ngoại tuyến hoàn toàn.
 
-👉 Sau khi hoàn tất, file `.offline_ready` sẽ được tạo
-=> từ đó về sau **chạy 100% offline**
+## Cấu trúc thư mục
 
----
-
-## 📁 Cấu trúc
-
-```
-project/
-├── lib/                # Python packages (local)
-├── argos_packages/     # model dịch
-├── stanza_resources/   # model NLP
-├── nltk_data/          # dictionary data
-├── .offline_ready      # đánh dấu đã setup
+```text
+argostranslate/
+  lib/                 Thư viện phụ thuộc cài đặt cục bộ
+  argos_packages/      Dữ liệu mô hình dịch thuật
+  stanza_resources/    Tài nguyên xử lý câu Stanza
+  nltk_data/           Cơ sở dữ liệu từ điển WordNet
+  .offline_ready       Tệp xác nhận hoàn tất thiết lập ngoại tuyến
 ```
 
----
+## Cơ chế hoạt động
 
-## 🧠 Cách hoạt động
+1. Cô lập thư viện: Ứng dụng tự động tải phụ thuộc vào thư mục lib nội bộ và nạp đường dẫn này vào danh sách sys.path, không can thiệp đến hệ thống Python chung của máy tính.
+2. Quản lý tài nguyên cục bộ: Các biến môi trường của Argos Translate và Stanza được thiết lập trỏ về các thư mục nội bộ trong dự án.
+3. Chặn truy cập mạng khi đã hoàn tất: Khi tệp .offline_ready xuất hiện, hệ thống tự động khóa chế độ tải qua Internet và chuyển sang sử dụng tài nguyên có sẵn trong máy.
 
-* Không dùng global Python packages
-* Tự cài vào `lib/` thông qua:
+## Khắc phục sự cố
 
-```python
-pip install --target ./lib
-```
-
-* Override path để chạy portable 
-
----
-
-## ⚠️ Lưu ý
-
-* Lần đầu bắt buộc phải có mạng
-* Nếu lỗi model:
+Trường hợp quá trình tải ban đầu bị gián đoạn hoặc thiếu tệp mô hình, thực hiện xóa tệp đánh dấu để tải lại:
 
 ```bash
 rm .offline_ready
 ```
 
-rồi chạy lại
+Sau khi xóa, đảm bảo máy tính có kết nối mạng và khởi chạy lại ứng dụng để chương trình tự động hoàn tất quá trình thiết lập.
 
----
+## Đóng gói ứng dụng
 
-## 💡 Tip
+Để phân phối cho người dùng cuối không có sẵn môi trường Python, có thể sử dụng PyInstaller để đóng gói thành tệp thực thi độc lập:
 
-Có thể build thành `.exe` bằng PyInstaller nếu muốn share cho người không biết Python.
+```bash
+pyinstaller "Translate Offline GUI Argos.py"
+```
 
----
+## Tác giả
 
-## 👨‍💻 Author
-
-Made by Kaivian
+Phát triển bởi Kaivian. Dự án sử dụng nền tảng nguồn mở Argos Translate, Stanza và NLTK.
