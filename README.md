@@ -62,12 +62,6 @@ argostranslate/
   .offline_ready       Tệp xác nhận hoàn tất thiết lập ngoại tuyến
 ```
 
-## Cơ chế hoạt động
-
-1. Cô lập thư viện: Ứng dụng tự động tải phụ thuộc vào thư mục lib nội bộ và nạp đường dẫn này vào danh sách sys.path, không can thiệp đến hệ thống Python chung của máy tính.
-2. Quản lý tài nguyên cục bộ: Các biến môi trường của Argos Translate và Stanza được thiết lập trỏ về các thư mục nội bộ trong dự án.
-3. Chặn truy cập mạng khi đã hoàn tất: Khi tệp .offline_ready xuất hiện, hệ thống tự động khóa chế độ tải qua Internet và chuyển sang sử dụng tài nguyên có sẵn trong máy.
-
 ## Khắc phục sự cố
 
 Trường hợp quá trình tải ban đầu bị gián đoạn hoặc thiếu tệp mô hình, thực hiện xóa tệp đánh dấu để tải lại:
