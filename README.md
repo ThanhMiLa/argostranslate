@@ -2,14 +2,6 @@
 
 Argos Offline Translator là phần mềm dịch thuật và tra cứu từ điển ngoại tuyến với giao diện đồ họa, hoạt động dựa trên nền tảng Argos Translate, Stanza và NLTK. Ứng dụng được thiết kế theo mô hình độc lập (Portable), cho phép vận hành hoàn toàn không cần kết nối mạng sau khi hoàn tất thiết lập ban đầu.
 
-## Tính năng nổi bật
-
-1. Hoạt động ngoại tuyến độc lập: Toàn bộ quá trình dịch thuật và tra cứu từ điển diễn ra trực tiếp trên máy tính cá nhân, bảo đảm quyền riêng tư của dữ liệu.
-2. Dịch thuật hai chiều: Hỗ trợ chuyển đổi ngôn ngữ qua lại giữa tiếng Anh và tiếng Việt.
-3. Từ điển chuyên sâu tích hợp: Kết hợp cơ sở dữ liệu WordNet cùng mô hình dịch nghĩa, cung cấp thông tin từ loại, định nghĩa chi tiết và câu ví dụ minh họa.
-4. Tách câu ngữ cảnh: Tích hợp thư viện Stanza hỗ trợ phân đoạn câu chính xác, tối ưu chất lượng văn bản dịch.
-5. Thiết kế dạng Portable: Không yêu cầu cài đặt gói thư viện vào môi trường Python toàn cục của hệ thống, thuận tiện di chuyển giữa các thiết bị.
-
 ## Yêu cầu hệ thống
 
 1. Python phiên bản 3.8 trở lên.
@@ -93,7 +85,3 @@ Sau khi xóa, đảm bảo máy tính có kết nối mạng và khởi chạy l
 ```bash
 pyinstaller "Translate Offline GUI Argos.py"
 ```
-
-## Tác giả
-
-Phát triển bởi Kaivian. Dự án sử dụng nền tảng nguồn mở Argos Translate, Stanza và NLTK.
